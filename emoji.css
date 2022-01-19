@@ -1,0 +1,7 @@
+/* Lets apply modern look and beautiful font to our textbox */
+#myTextBox {
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}

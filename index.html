@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Coding by CodingFire - youtube.com/codingfire -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link css file -->
+  <link rel="stylesheet" href="style.css">
+  <title>Emoji Option Using Html & CSS | CodingFire</title>
+</head>
+<body>
+  <div class="container">
+    <textarea id="myTextBox">
+    </textarea>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      selector: '#myTextBox',
+      plugins: 'emoticons',
+      toolbar: 'emoticons',
+      // To change the default look you can apply your own css but like this
+      content_css: "emoji.css"
+    });
+  </script>
+</body>
+</html>
