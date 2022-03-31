@@ -1,28 +1,83 @@
 <!DOCTYPE html>
-<!-- Coding by CodingFire - youtube.com/codingfire -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Link css file -->
   <link rel="stylesheet" href="style.css">
-  <title>Emoji Option Using Html & CSS | CodingFire</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/skins/lightgray/skin.min.css">
+  <!--Import bootstrap CDN-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Fire Text</title>
 </head>
 <body>
   <div class="container">
+    <h1 class="header-main">Fire <span><a class="link-main" href="https://nextjs-portfolio-eosin.vercel.app/">Text</a></span></h1>
     <textarea id="myTextBox">
     </textarea>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js"></script>
   <script>
+    
     tinymce.init({
       selector: '#myTextBox',
-      plugins: 'emoticons',
-      toolbar: 'emoticons',
-      // To change the default look you can apply your own css but like this
-      content_css: "emoji.css"
+      plugins: [
+        'emoticons', 
+        'autolink', 
+        'autosave', 
+        'quickbars', 
+        'code', 
+        'charmap', 
+        'save', 
+        'media mediaembed', 
+        'searchreplace',
+      'image imagetools',
+      'table',
+      'hr',
+      'wordcount',
+      'anchor',
+      'bbcode',
+      'importcss',
+      'textcolor colorpicker',
+      "insertdatetime",
+      "spellchecker",
+      "tabfocus",
+      "contextmenu",
+      "advcode",
+      "preview",
+      "codesample",
+      'fullscreen',
+      'fullpage',
+      'visualblocks',
+      'visualchars',
+      'nonbreaking',
+      'noneditable',
+      'lists advlist',
+      "a11ychecker",
+      'textpattern',
+      'legacyoutput',
+      'nonbreaking',
+      'pagebreak',
+      'directionality'],
+      toolbar: ['save emoticons'],
+      themes: 'modern',
+      content_css: "emoji.css",
+      autosave_ask_before_unload: true,
+      contextmenu: "link image inserttable | cell row column deletetable | emoticons code quickbars | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | undo redo | link image media mediaembed | table hr anchor bbcode importcss textcolor colorpicker insertdatetime,", 
+      save_enablewhendirty: true,
+      branding: false,
+      save_onsavecallback: function () { console.log('Saved'); },
+      spellchecker_callback: function(method, text, success, failure) {
+    var words = text.match(this.getWordCharPattern());
+    if (method == "spellcheck") {
+      var suggestions = {};
+      for (var i = 0; i < words.length; i++) {
+        suggestions[words[i]] = ["First", "Second"];
+      }
+      success(suggestions);
+    }
+  }
     });
   </script>
 </body>
